@@ -1,7 +1,7 @@
-package com.senik11;
+package edu.androidclub;
 
-import com.senik11.domain.Item;
-import com.senik11.domain.ItemBox;
+import edu.androidclub.domain.Item;
+import edu.androidclub.domain.ItemBox;
 
 import java.util.Stack;
 

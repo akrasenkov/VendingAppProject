@@ -1,4 +1,4 @@
-package com.senik11;
+package edu.androidclub;
 
 import java.util.Objects;
 

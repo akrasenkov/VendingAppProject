@@ -1,6 +1,6 @@
-package com.senik11.domain;
+package edu.androidclub.domain;
 
-import com.senik11.ItemInfoScheme;
+import edu.androidclub.ItemInfoScheme;
 
 /*
 * Класс, описывающий функционал базы данных - постоянного хранилища

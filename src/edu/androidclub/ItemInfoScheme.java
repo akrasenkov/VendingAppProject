@@ -1,6 +1,6 @@
-package com.senik11;
+package edu.androidclub;
 
-import com.senik11.domain.Item;
+import edu.androidclub.domain.Item;
 
 import java.util.HashMap;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package com.senik11.domain;
+package edu.androidclub.domain;
 
 /*
 * Класс, описывающий функционал приёмника денег

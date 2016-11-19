@@ -1,4 +1,4 @@
-package com.senik11.domain;
+package edu.androidclub.domain;
 
 /*
 * Интерфейс, представляющий собой описание функционал экрана аппарата

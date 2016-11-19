@@ -1,6 +1,6 @@
-package com.senik11.domain;
+package edu.androidclub.domain;
 
-import com.senik11.Coordinates;
+import edu.androidclub.Coordinates;
 
 /*
     Интерфейс, описывающий функционал (что умеет) нашей витрины (коробки с продуктами)
