@@ -10,4 +10,7 @@ public interface ItemBox {
     /* Выдать предмет по его координатам */
     Item emit(Coordinates coordinates);
 
+    /* Проверить предмет по имени */
+    boolean availability(String productName);
+
 }
