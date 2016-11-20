@@ -54,6 +54,10 @@ public class Application implements Runnable {
         уже написано
     */
     private void test() {
+        // Экран
+        PrintInfo print = new PrintInfo();
+
+
         // Создадим схему продуктов (пустую)
         ItemInfoScheme itemScheme = new ItemInfoScheme();
         // Создадим наборы продуктов для ячеек схемы (пустые)
@@ -79,29 +83,41 @@ public class Application implements Runnable {
         ItemBox itemBox = new ProductsBox(itemScheme);
 
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
-        System.out.println( // Напечатать в консоль
-                itemBox.emit( // Выдать предмет
-                        new Coordinates(1, 1) // Указываем координату
-                )
-                .getName() // Получить имя предмета
-        ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        print.clear(); //?
+        print.printText(itemBox.availability("Cola"));
+        print.printText(itemBox.emit(new Coordinates(1, 1))); // OK
+        print.printText(itemBox.availability("Cola"));
+        print.printText(itemBox.emit(new Coordinates(1, 1))); // OK
+        print.printText(itemBox.availability("Cola"));
+        print.printText(itemBox.emit(new Coordinates(1, 1))); // OK
+        print.printText(itemBox.availability("Cola"));
+        print.printText(itemBox.emit(new Coordinates(1, 1))); // OK
+        print.printText(itemBox.availability("Sprite"));
+        print.printText(itemBox.emit(new Coordinates(1, 2))); // OK
+        print.printText(itemBox.availability("Sprite"));
+        print.printText(itemBox.emit(new Coordinates(1, 2))); // OK
+        print.printText(itemBox.availability("Sprite"));
+        print.printText(itemBox.emit(new Coordinates(1, 2))); // OK
     }
 
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 95); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super("Sprite", 65);
+        }
+    }
+
+    // Опишем Empty как подкласс Предмета
+    public static class Empty extends Item {
+        public Empty() {
+            super("Товар кончился", 0);
         }
     }
 }
