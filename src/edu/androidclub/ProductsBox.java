@@ -3,9 +3,6 @@ package edu.androidclub;
 import edu.androidclub.domain.Item;
 import edu.androidclub.domain.ItemBox;
 
-import java.util.Collection;
-import java.util.EmptyStackException;
-import java.util.List;
 import java.util.Stack;
 
 /*
