@@ -4,15 +4,17 @@ package edu.androidclub.domain;
 // Он тоже неизменяемый - т.к. все поля final
 public abstract class Item {
     private final String name;
-    private String cost;
-    public Item(String name) {
+    private final int cost;
+
+    public Item(String name, int cost) {
         this.name = name;
+        this.cost = cost;
     }
 
     // Получить имя
     public String getName() {
         return name;
     }
-    public String getCost(){ return cost; }
+    public int getCost(){ return cost; }
 
 }
