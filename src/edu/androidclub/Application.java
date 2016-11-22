@@ -60,6 +60,9 @@ public class Application implements Runnable {
         Stack<Item> colas = new Stack<>(); // 1
         Stack<Item> sprites = new Stack<>(); // 2
 
+        //Создал монитор для вывода
+        Monitor monitor = new Monitor();
+
         // Заполним наши наборы продуктами
         colas.push(new Cola());
         colas.push(new Cola());
@@ -86,49 +89,47 @@ public class Application implements Runnable {
                     )
                             .getName() // Получить имя предмета
             );*/
-            Item item ;
-            item = itemBox.emit(new Coordinates(1, 1));
-            System.out.println("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() + "|"); // OK
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() +"|");// OK
         }
 
         System.out.println("|-------------------------------|");
 
         if(itemBox.isSet(new Coordinates(1, 1))){
-            Item item ;
-            item = itemBox.emit(new Coordinates(1, 1));
-            System.out.println("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() + "|"); // OK
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() +"|");// OK
         }
 
         System.out.println("|-------------------------------|");
 
         if(itemBox.isSet(new Coordinates(1, 1))) {
-            Item item ;
-            item = itemBox.emit(new Coordinates(1, 1));
-            System.out.println("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() + "|"); // OK
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() +"|");// OK
         }
 
         System.out.println("|-------------------------------|");
 
         if(itemBox.isSet(new Coordinates(1, 1))) {
-            Item item ;
-            item = itemBox.emit(new Coordinates(1, 1));
-            System.out.println("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() +"|"); // FAIL - предметы кончились в ячейке
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("| Выдан товар: " + item.getName() +" по цене - " + item.getCost() +"|");// FAIL - предметы кончились в ячейке
 
         }
+
+        monitor.clear();
 
     }
 
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola",50); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 50); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite",55);
+            super("Sprite", 55);
         }
     }
 }

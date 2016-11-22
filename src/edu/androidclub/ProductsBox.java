@@ -36,7 +36,7 @@ public class ProductsBox implements ItemBox {
         Stack<Item> items = scheme.get(coordinates);
         if(items.empty()){
             return false;
-        }else{
+        } else {
             return true;
         }
 
