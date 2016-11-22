@@ -74,6 +74,9 @@ public class Application implements Runnable {
         // Поместии наборы продуктов в схему
         itemScheme.put(colaCors, colas);
         itemScheme.put(spriteCors, sprites);
+        //itemScheme.put(colaCors, sprites);
+
+
 
         // Создадим нашу витрину (коробку продуктов) на основании схемы
         ItemBox itemBox = new ProductsBox(itemScheme);
@@ -94,14 +97,14 @@ public class Application implements Runnable {
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 45); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super("Sprite", 65);
         }
     }
 }
