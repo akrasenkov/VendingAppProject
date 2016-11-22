@@ -1,5 +1,6 @@
 package edu.androidclub;
 
+import edu.androidclub.domain.AppScreen;
 import edu.androidclub.domain.Item;
 import edu.androidclub.domain.ItemBox;
 
@@ -61,7 +62,7 @@ public class Application implements Runnable {
         Stack<Item> sprites = new Stack<>(); // 2
 
         //Создал монитор для вывода
-        Monitor monitor = new Monitor();
+        AppScreen monitor = new Monitor();
 
         // Заполним наши наборы продуктами
         colas.push(new Cola());

@@ -8,9 +8,7 @@ import edu.androidclub.domain.AppScreen;
 public class Monitor implements AppScreen {
 
     public void printText(String text){
-
         System.out.println(text);
-
     }
 
     public void clear(){
@@ -20,5 +18,4 @@ public class Monitor implements AppScreen {
         }
 
     }
-
 }
