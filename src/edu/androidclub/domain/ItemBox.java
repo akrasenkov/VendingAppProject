@@ -8,6 +8,8 @@ import edu.androidclub.Coordinates;
 public interface ItemBox {
 
     /* Выдать предмет по его координатам */
-    Item emit(Coordinates coordinates);
+    String emit(Coordinates coordinates);
+    /*Проверка наличия предмета*/
+    String check(Coordinates coordinates);
 
 }

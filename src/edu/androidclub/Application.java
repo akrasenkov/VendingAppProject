@@ -53,7 +53,10 @@ public class Application implements Runnable {
         Здесь мы создадим случайные данные о продуктах и заполним ими наш "автомат", чтобы протестировать то, что
         уже написано
     */
+
+
     private void test() {
+
         // Создадим схему продуктов (пустую)
         ItemInfoScheme itemScheme = new ItemInfoScheme();
         // Создадим наборы продуктов для ячеек схемы (пустые)
@@ -83,25 +86,34 @@ public class Application implements Runnable {
                 itemBox.emit( // Выдать предмет
                         new Coordinates(1, 1) // Указываем координату
                 )
-                .getName() // Получить имя предмета
         ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
 
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        System.out.println(itemBox.check(new Coordinates(1, 1)));
+        System.out.println(itemBox.emit(new Coordinates(1, 1)));
+        System.out.println(itemBox.emit(new Coordinates(1, 1)));
+        System.out.println(itemBox.emit(new Coordinates(1, 1)));
+        System.out.println(itemBox.check(new Coordinates(1, 2)));
+        System.out.println(itemBox.emit(new Coordinates(1, 2)));
+        System.out.println(itemBox.check(new Coordinates(1, 2)));
+
+
     }
 
     // Опишем Колу как подкласс Предмета
+
+
+
+
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 64); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super("Sprite", 55);
         }
     }
 }

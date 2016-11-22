@@ -1,5 +1,6 @@
 package edu.androidclub;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Parser;
 import edu.androidclub.domain.Item;
 import edu.androidclub.domain.ItemBox;
 
@@ -19,19 +20,27 @@ public class ProductsBox implements ItemBox {
 
     // Выдать предмет по координатам
     @Override
-    public Item emit(Coordinates coordinates) {
+    public String emit(Coordinates coordinates) {
         // Получить стопку предметов на позиции
         Stack<Item> items = scheme.get(coordinates);
-
-        // Если пусто - возвращаем пустоту
         if (items.empty()) {
-            return null;
+            return "нет в наличии" + "\n----------------------------";
         }
 
         // Возвращаем верхний элемент и удаляем его с вершины стопки
-        return items.pop();
+        return items.pop().getName() + "\n----------------------------";
     }
-}
+    @Override
+    public String check(Coordinates coordinates) {
+        Stack<Item> items = scheme.get(coordinates);
+        if (items.empty()) {
+            return "нет в наличии" + "\n----------------------------";
+        }
+        else {
+            return "в наличии, цена " + items.peek().getCost() + "\n----------------------------";
+        }
+        }
+    }
 
 
 
