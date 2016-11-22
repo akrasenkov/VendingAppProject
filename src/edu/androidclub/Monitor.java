@@ -8,7 +8,7 @@ import edu.androidclub.domain.AppScreen;
 public class Monitor implements AppScreen {
 
     public void printText(String text){
-        System.out.println("|-------------------------------|" + "\n" + text + "\n" + "|-------------------------------|");
+        System.out.println("|-------------------------------|" + "\n" + "| " +text + "|" + "\n" + "|-------------------------------|");
     }
 
     public void clear(){

@@ -91,22 +91,22 @@ public class Application implements Runnable {
                             .getName() // Получить имя предмета
             );*/
             Item item = itemBox.emit(new Coordinates(1, 1));
-            monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// OK
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
         }
 
         if(itemBox.isSet(new Coordinates(1, 1))){
             Item item = itemBox.emit(new Coordinates(1, 1));
-            monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// OK
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
         }
 
         if(itemBox.isSet(new Coordinates(1, 1))) {
             Item item = itemBox.emit(new Coordinates(1, 1));
-            monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// OK
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
         }
 
         if(itemBox.isSet(new Coordinates(1, 1))) {
             Item item = itemBox.emit(new Coordinates(1, 1));
-            monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// FAIL - предметы кончились в ячейке
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// FAIL - предметы кончились в ячейке
 
         }
 
