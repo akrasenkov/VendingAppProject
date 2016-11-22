@@ -12,6 +12,7 @@ public class ProductsBox implements ItemBox {
 
     private ItemInfoScheme scheme;
     private VoidItem voidItem;
+    public Screen screen;
 
     // Требует схему при создании
     public ProductsBox(ItemInfoScheme scheme) {
