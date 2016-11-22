@@ -31,7 +31,21 @@ public class ProductsBox implements ItemBox {
         // Возвращаем верхний элемент и удаляем его с вершины стопки
         return items.pop();
     }
+
+
+    public String thereAre(Coordinates coordinates) {
+        Stack<Item> items = scheme.get(coordinates);
+        if (items.empty()) {
+            return "Запрашиваемого предмета нет";
+        }
+        else{
+            return "Запрашиваемый предмет есть";
+        }
+    }
 }
+
+
+
 
 
 

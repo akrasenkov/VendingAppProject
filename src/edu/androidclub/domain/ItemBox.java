@@ -9,5 +9,5 @@ public interface ItemBox {
 
     /* Выдать предмет по его координатам */
     Item emit(Coordinates coordinates);
-
+    String thereAre(Coordinates coordinates);
 }

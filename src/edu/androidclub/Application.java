@@ -72,36 +72,58 @@ public class Application implements Runnable {
         Coordinates spriteCors = new Coordinates(1, 2);
 
         // Поместии наборы продуктов в схему
-        itemScheme.put(colaCors, colas);
+        itemScheme.put(colaCors, colas);//colaCors-ключ, colas-значение
         itemScheme.put(spriteCors, sprites);
 
         // Создадим нашу витрину (коробку продуктов) на основании схемы
         ItemBox itemBox = new ProductsBox(itemScheme);
 
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
-        System.out.println( // Напечатать в консоль
-                itemBox.emit( // Выдать предмет
-                        new Coordinates(1, 1) // Указываем координату
-                )
-                .getName() // Получить имя предмета
-        ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        if (itemBox.thereAre(new Coordinates(1, 1))=="Запрашиваемый предмет есть")
+        {
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName());
+        }
+        else
+        {
+            System.out.println("Запрашиваемого предмета нет");
+        }
+        if (itemBox.thereAre(new Coordinates(1, 1))=="Запрашиваемый предмет есть")
+        {
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName());
+        }
+        else
+        {
+            System.out.println("Запрашиваемого предмета нет");
+        }
+        if (itemBox.thereAre(new Coordinates(1, 1))=="Запрашиваемый предмет есть")
+        {
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName());
+        }
+        else
+        {
+            System.out.println("Запрашиваемого предмета нет");
+        }
+        if (itemBox.thereAre(new Coordinates(1, 1))=="Запрашиваемый предмет есть")
+        {
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName());
+        }
+        else
+        {
+            System.out.println("Запрашиваемого предмета нет");
+        }
     }
 
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 50); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super("Sprite", 50);
         }
     }
 }
