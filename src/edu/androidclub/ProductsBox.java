@@ -19,6 +19,8 @@ public class ProductsBox implements ItemBox {
     public ProductsBox(ItemInfoScheme scheme) {
         this.scheme = scheme;
         this.voidItem = new VoidItem();
+        this.screen = new Screen();
+        screen.update(scheme);
     }
 
     private Stack getItems(Coordinates coordinates){
@@ -28,6 +30,8 @@ public class ProductsBox implements ItemBox {
         }
         // неверные координаты
         catch(NullPointerException e){
+            screen.setNotice("Ошибка!");
+            screen.update(scheme);
             return null;
         }
     }
@@ -39,13 +43,24 @@ public class ProductsBox implements ItemBox {
         Stack<Item> items = getItems(coordinates);
         if (this.amount(coordinates) > 0) {
             // Возвращаем верхний элемент и удаляем его с вершины стопки
-            return items.pop();
+            Item top = items.pop();
+            screen.setNotice("продан " + top.getName() + " на (" + coordinates.getRow() + ", " + coordinates.getColumn() + ") за " + top.getCost() + " денег");
+            screen.update(scheme);
+            return top;
+
+        }
+        else if(this.amount(coordinates) == -1){
+            screen.setNotice("Обращение к несуществующей/пустой ячейке");
+            screen.update(scheme);
+            return voidItem;
         }
         else{
             // Вернуть пустой предмет? о_О
             // Тут возникла проблема, т.к. вне зависимости от условий мы вызываем метод getName()
             // и я не знал, как вырутиться
             // Мне кажется, я сделал костыль
+            screen.setNotice("Ячейка (" + coordinates.getRow() + ", " + coordinates.getColumn() + ") пуста!");
+            screen.update(scheme);
             return voidItem;
         }
     }
@@ -54,8 +69,13 @@ public class ProductsBox implements ItemBox {
     public int amount(Coordinates coordinates) {
         // Получить стопку предметов на позиции
         Stack<Item> items = getItems(coordinates);
-        // Вернуть количество
-        return items.size();
+        if(items != null) {
+            // Вернуть количество
+            return items.size();
+        }
+        else{
+            return -1;
+        }
     }
 
 

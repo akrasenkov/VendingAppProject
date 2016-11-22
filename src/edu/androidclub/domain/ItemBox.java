@@ -9,6 +9,7 @@ public interface ItemBox {
 
     /* Выдать предмет по его координатам */
     Item emit(Coordinates coordinates);
+    /* Количество предметов по координатам */
     int amount(Coordinates coordinates);
 
 }
