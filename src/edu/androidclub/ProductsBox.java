@@ -31,6 +31,16 @@ public class ProductsBox implements ItemBox {
         // Возвращаем верхний элемент и удаляем его с вершины стопки
         return items.pop();
     }
+    public boolean isSet(Coordinates coordinates){
+
+        Stack<Item> items = scheme.get(coordinates);
+        if(items.empty()){
+            return false;
+        } else {
+            return true;
+        }
+
+    }
 }
 
 

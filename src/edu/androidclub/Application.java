@@ -1,5 +1,6 @@
 package edu.androidclub;
 
+import edu.androidclub.domain.AppScreen;
 import edu.androidclub.domain.Item;
 import edu.androidclub.domain.ItemBox;
 
@@ -60,6 +61,9 @@ public class Application implements Runnable {
         Stack<Item> colas = new Stack<>(); // 1
         Stack<Item> sprites = new Stack<>(); // 2
 
+        //Создал монитор для вывода
+        AppScreen monitor = new Monitor();
+
         // Заполним наши наборы продуктами
         colas.push(new Cola());
         colas.push(new Cola());
@@ -79,29 +83,48 @@ public class Application implements Runnable {
         ItemBox itemBox = new ProductsBox(itemScheme);
 
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
-        System.out.println( // Напечатать в консоль
-                itemBox.emit( // Выдать предмет
-                        new Coordinates(1, 1) // Указываем координату
-                )
-                .getName() // Получить имя предмета
-        ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
+        if(itemBox.isSet(new Coordinates(1, 1))) {
+/*            System.out.println( // Напечатать в консоль
+                    itemBox.emit( // Выдать предмет
+                            new Coordinates(1, 1) // Указываем координату
+                    )
+                            .getName() // Получить имя предмета
+            );*/
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
+        }
 
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        if(itemBox.isSet(new Coordinates(1, 1))){
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
+        }
+
+        if(itemBox.isSet(new Coordinates(1, 1))) {
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
+        }
+
+        if(itemBox.isSet(new Coordinates(1, 1))) {
+            Item item = itemBox.emit(new Coordinates(1, 1));
+            monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// FAIL - предметы кончились в ячейке
+
+        }
+
+        monitor.clear();
+
     }
 
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 50); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super("Sprite", 55);
         }
     }
 }
