@@ -4,7 +4,7 @@ package edu.androidclub.domain;
 // Он тоже неизменяемый - т.к. все поля final
 public abstract class Item {
     private final String name;
-
+    private String cost;
     public Item(String name) {
         this.name = name;
     }
@@ -13,4 +13,6 @@ public abstract class Item {
     public String getName() {
         return name;
     }
+    public String getCost(){ return cost; }
+
 }
