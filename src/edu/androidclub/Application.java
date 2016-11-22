@@ -64,6 +64,7 @@ public class Application implements Runnable {
         colas.push(new Cola());
         colas.push(new Cola());
         colas.push(new Cola());
+        //разбираюсь с пулл реквестом
         sprites.push(new Sprite());
         sprites.push(new Sprite());
 
