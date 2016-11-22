@@ -94,21 +94,15 @@ public class Application implements Runnable {
             monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// OK
         }
 
-        System.out.println("|-------------------------------|");
-
         if(itemBox.isSet(new Coordinates(1, 1))){
             Item item = itemBox.emit(new Coordinates(1, 1));
             monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// OK
         }
 
-        System.out.println("|-------------------------------|");
-
         if(itemBox.isSet(new Coordinates(1, 1))) {
             Item item = itemBox.emit(new Coordinates(1, 1));
             monitor.printText("| Выдан товар: " + item.getName() + " по цене - " + item.getCost() + "|");// OK
         }
-
-        System.out.println("|-------------------------------|");
 
         if(itemBox.isSet(new Coordinates(1, 1))) {
             Item item = itemBox.emit(new Coordinates(1, 1));
