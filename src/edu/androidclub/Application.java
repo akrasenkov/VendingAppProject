@@ -85,10 +85,15 @@ public class Application implements Runnable {
                 )
                 .getName() // Получить имя предмета
         ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        if(itemBox.isSet(new Coordinates(1, 1))){
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName());
+        } // OK
+        if(itemBox.isSet(new Coordinates(1, 1))) {
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
+        }
+        if(itemBox.isSet(new Coordinates(1, 1))) {
+            System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        }
     }
 
     // Опишем Колу как подкласс Предмета
