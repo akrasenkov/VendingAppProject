@@ -79,29 +79,35 @@ public class Application implements Runnable {
         ItemBox itemBox = new ProductsBox(itemScheme);
 
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
-        System.out.println( // Напечатать в консоль
-                itemBox.emit( // Выдать предмет
-                        new Coordinates(1, 1) // Указываем координату
-                )
-                .getName() // Получить имя предмета
-        ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
 
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
-    }
+        if (itemBox.IsThereAny(new Coordinates(1, 1)))
+            ScreenInput.printItemInfo(itemBox.emit(new Coordinates(1, 1)));
+        if (itemBox.IsThereAny(new Coordinates(1, 1)))
+            ScreenInput.printItemInfo(itemBox.emit(new Coordinates(1, 1)));
+        if (itemBox.IsThereAny(new Coordinates(1, 1)))
+            ScreenInput.printItemInfo(itemBox.emit(new Coordinates(1, 1)));
+        if (itemBox.IsThereAny(new Coordinates(1, 1)))
+            ScreenInput.printItemInfo(itemBox.emit(new Coordinates(1, 1)));
+        }
 
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super(1,"Cola",12); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super(2,"Sprite",13);
+        }
+    }
+
+    // Опишем Закончишийся продукт как подкласс Предмета
+    public static class Empty extends Item {
+        public Empty() {
+            super(0,"Товар закончился", 0);
         }
     }
 }
