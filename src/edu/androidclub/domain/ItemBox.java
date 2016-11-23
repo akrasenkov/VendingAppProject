@@ -9,5 +9,6 @@ public interface ItemBox {
 
     /* Выдать предмет по его координатам */
     Item emit(Coordinates coordinates);
+    boolean Check(Coordinates coordinates);
 
 }
