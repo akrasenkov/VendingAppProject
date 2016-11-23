@@ -3,7 +3,9 @@ package edu.androidclub;
 import edu.androidclub.domain.AppScreen;
 import edu.androidclub.domain.Item;
 import edu.androidclub.domain.ItemBox;
+import edu.androidclub.domain.Keypad;
 
+import java.io.IOException;
 import java.util.Stack;
 
 /*
@@ -55,7 +57,7 @@ public class Application implements Runnable {
         уже написано
     */
     private void test() {
-        // Создадим схему продуктов (пустую)
+/*        // Создадим схему продуктов (пустую)
         ItemInfoScheme itemScheme = new ItemInfoScheme();
         // Создадим наборы продуктов для ячеек схемы (пустые)
         Stack<Item> colas = new Stack<>(); // 1
@@ -84,12 +86,12 @@ public class Application implements Runnable {
 
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
         if(itemBox.isSet(new Coordinates(1, 1))) {
-/*            System.out.println( // Напечатать в консоль
+*//*            System.out.println( // Напечатать в консоль
                     itemBox.emit( // Выдать предмет
                             new Coordinates(1, 1) // Указываем координату
                     )
                             .getName() // Получить имя предмета
-            );*/
+            );*//*
             Item item = itemBox.emit(new Coordinates(1, 1));
             monitor.printText("Выдан товар: " + item.getName() + " по цене - " + item.getCost());// OK
         }
@@ -110,8 +112,22 @@ public class Application implements Runnable {
 
         }
 
-        monitor.clear();
+        try {
+            Thread.sleep(5000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        monitor.clear();*/
+
+        Keypad keypad = new ConsoleInput();
+
+        System.out.println(
+                keypad.readCommand().toString()
+        );
+
+        // get 21
+        // 012345
     }
 
     // Опишем Колу как подкласс Предмета
