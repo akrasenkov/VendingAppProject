@@ -48,7 +48,8 @@ public class Application implements Runnable {
     */
     @Override
     public void run() {
-        test();
+        Runnable va = new VendingAutomat();
+        va.run();
     }
 
     /*
@@ -57,28 +58,6 @@ public class Application implements Runnable {
         уже написано
     */
     private void test() {
-        Keypad keypad = new ConsoleInput();
-        String input = keypad.readCommand().trim();
-        String command = input.substring(0, input.lastIndexOf(' '));
-        String data = input.substring(input.lastIndexOf(' ') + 1, input.length());
 
-        System.out.println(command);
-        System.out.println(data);
-        // get 21
-        // 012345
-    }
-
-    // Опишем Колу как подкласс Предмета
-    public static class Cola extends Item {
-        public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
-        }
-    }
-
-    // Опишем Спрайт как подкласс Предмета
-    public static class Sprite extends Item {
-        public Sprite() {
-            super("Sprite");
-        }
     }
 }

@@ -1,7 +1,9 @@
 package edu.androidclub.domain;
 
+import edu.androidclub.Command;
+
 public interface Keypad {
 
-    String readCommand();
+    Command readCommand();
 
 }
