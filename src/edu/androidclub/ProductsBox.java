@@ -24,12 +24,18 @@ public class ProductsBox implements ItemBox {
         Stack<Item> items = scheme.get(coordinates);
 
         // Если пусто - возвращаем пустоту
-        if (items.empty()) {
-            return null;
-        }
+        if (IsThereAny(coordinates))
+            {return items.pop();}
+        else
+            {return new Application.Empty();}
 
-        // Возвращаем верхний элемент и удаляем его с вершины стопки
-        return items.pop();
+    }
+
+    public boolean IsThereAny(Coordinates coordinates)
+    {
+        Stack<Item> items = scheme.get(coordinates);
+        if (items.empty()) { return false; }
+        return true;
     }
 }
 
