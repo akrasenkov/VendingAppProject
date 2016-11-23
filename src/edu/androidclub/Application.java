@@ -1,8 +1,11 @@
 package edu.androidclub;
 
+import edu.androidclub.domain.AppScreen;
 import edu.androidclub.domain.Item;
 import edu.androidclub.domain.ItemBox;
+import edu.androidclub.domain.Keypad;
 
+import java.io.IOException;
 import java.util.Stack;
 
 /*
@@ -54,41 +57,15 @@ public class Application implements Runnable {
         уже написано
     */
     private void test() {
-        // Создадим схему продуктов (пустую)
-        ItemInfoScheme itemScheme = new ItemInfoScheme();
-        // Создадим наборы продуктов для ячеек схемы (пустые)
-        Stack<Item> colas = new Stack<>(); // 1
-        Stack<Item> sprites = new Stack<>(); // 2
+        Keypad keypad = new ConsoleInput();
+        String input = keypad.readCommand().trim();
+        String command = input.substring(0, input.lastIndexOf(' '));
+        String data = input.substring(input.lastIndexOf(' ') + 1, input.length());
 
-        // Заполним наши наборы продуктами
-        colas.push(new Cola());
-        colas.push(new Cola());
-        colas.push(new Cola());
-        sprites.push(new Sprite());
-        sprites.push(new Sprite());
-
-        // Создадим объекты-координаты наших наборов продуктов в схеме
-        Coordinates colaCors = new Coordinates(1, 1);
-        Coordinates spriteCors = new Coordinates(1, 2);
-
-        // Поместии наборы продуктов в схему
-        itemScheme.put(colaCors, colas);
-        itemScheme.put(spriteCors, sprites);
-
-        // Создадим нашу витрину (коробку продуктов) на основании схемы
-        ItemBox itemBox = new ProductsBox(itemScheme);
-
-        // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
-        System.out.println( // Напечатать в консоль
-                itemBox.emit( // Выдать предмет
-                        new Coordinates(1, 1) // Указываем координату
-                )
-                .getName() // Получить имя предмета
-        ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
+        System.out.println(command);
+        System.out.println(data);
+        // get 21
+        // 012345
     }
 
     // Опишем Колу как подкласс Предмета
