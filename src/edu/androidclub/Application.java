@@ -78,6 +78,8 @@ public class Application implements Runnable {
         // Создадим нашу витрину (коробку продуктов) на основании схемы
         ItemBox itemBox = new ProductsBox(itemScheme);
 
+        VendorScreen screen = new VendorScreen();
+
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
         System.out.println( // Напечатать в консоль
                 itemBox.emit( // Выдать предмет
@@ -85,23 +87,23 @@ public class Application implements Runnable {
                 )
                 .getName() // Получить имя предмета
         ); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // OK
+        screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
+        screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
+        screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
 
-        System.out.println(itemBox.emit(new Coordinates(1, 1)).getName()); // FAIL - предметы кончились в ячейке
     }
 
     // Опишем Колу как подкласс Предмета
     public static class Cola extends Item {
         public Cola() {
-            super("Cola"); // Вызов конструктора класса-родителя (класса Item)
+            super("Cola", 10); // Вызов конструктора класса-родителя (класса Item)
         }
     }
 
     // Опишем Спрайт как подкласс Предмета
     public static class Sprite extends Item {
         public Sprite() {
-            super("Sprite");
+            super("Sprite", 10);
         }
     }
 }
