@@ -77,7 +77,7 @@ public class Application implements Runnable {
 
         // Создадим нашу витрину (коробку продуктов) на основании схемы
         ItemBox itemBox = new ProductsBox(itemScheme);
-        // Создадим экран
+
         VendorScreen screen = new VendorScreen();
 
         // Протестируем схему - заставим витрину выдавать объекты на заданных координатах
@@ -87,9 +87,6 @@ public class Application implements Runnable {
                 )
                 .getName() // Получить имя предмета
         ); // OK
-        //Выведем информацию о выдоваемом предмете на экран
-        screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
-        screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
         screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
         screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
         screen.printText(itemBox.emit(new Coordinates(1, 1)).toString());
