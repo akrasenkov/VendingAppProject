@@ -6,7 +6,7 @@ public abstract class Item {
     private final String name;
     private final int cost;
 
-    public Item(String name,int cost) {
+    public Item(String name, int cost) {
         this.name = name;
         this.cost = cost;
     }
@@ -16,7 +16,6 @@ public abstract class Item {
         return name;
     }
 
-    // Получить стоимость
     public int getCost() {
         return cost;
     }
