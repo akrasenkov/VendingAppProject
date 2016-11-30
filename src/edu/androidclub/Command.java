@@ -2,6 +2,7 @@ package edu.androidclub;
 
 public class Command {
     public static final String TYPE_GET = "get";
+    public static final String TYPE_STOP = "stop";
 
     private final String type;
     private final Object data;

@@ -4,8 +4,8 @@ import edu.androidclub.domain.Item;
 
 public class Sprite extends Item {
 
-    public Sprite() {
-        super("Sprite", 45);
+    public Sprite(int cost) {
+        super("Sprite", cost);
     }
 
 }

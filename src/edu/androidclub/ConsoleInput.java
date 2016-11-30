@@ -27,17 +27,28 @@ public class ConsoleInput implements Keypad {
 
     private Command getCommandByString(String input) {
         Command result = null;
-        String typeStr = input.trim().substring(0, input.lastIndexOf(' '));
-        String dataStr = input.trim().substring(input.lastIndexOf(' ') + 1, input.length());
+        String trimInput = input.trim();
 
-        int data = Integer.valueOf(dataStr);
-        int x = data / 10;
-        int y = data % 10;
+        String[] elements = trimInput.split(" ");
+
+        String typeStr = elements[0];
 
         if (typeStr.equals(Command.TYPE_GET)) {
+            String dataStr = elements[1];
+
+            int data = Integer.valueOf(dataStr);
+            int x = data / 10;
+            int y = data % 10;
+
             result = new Command(
                     Command.TYPE_GET,
                     new Coordinates(x, y)
+            );
+        }
+        if (typeStr.equals(Command.TYPE_STOP)) {
+            result = new Command(
+                    Command.TYPE_STOP,
+                    null
             );
         }
 
