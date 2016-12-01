@@ -5,7 +5,7 @@ import edu.androidclub.domain.ItemBox;
 
 import java.util.Stack;
 
-/*
+/*ыф
     Реализация витрины аппарата
 * */
 public class ProductsBox implements ItemBox {
