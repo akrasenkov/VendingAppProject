@@ -37,19 +37,3 @@ public class ProductsBox implements ItemBox {
         return scheme;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
